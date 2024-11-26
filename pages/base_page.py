@@ -26,3 +26,11 @@ class BasePage:
     @allure.step('Перейти на другую вкладку')
     def switch_to_new_tab(self):
         self.driver.switch_to.window(self.driver.window_handles[1])
+
+    @allure.step('Получить URL текущей страницы')
+    def get_current_url(self):
+        return self.driver.current_url
+
+    @allure.step('Дождаться загрузки DZEN')
+    def wait_load_dzen(self):
+        self.find_clickable_element(BasePageLocators.YANDEX_SEARCH)

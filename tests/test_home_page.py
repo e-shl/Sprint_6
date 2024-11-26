@@ -14,15 +14,15 @@ class TestFAQSection:
         home_page = HomePage(driver)
         home_page.click_button_order_header()
         home_page.click_logo_scooter()
-        assert driver.current_url == BASE_URL
+        assert home_page.get_current_url() == BASE_URL
 
     @allure.title('Проверить: если нажать на логотип Яндекса, в новом окне через редирект откроется главная страница Дзена.')
     def test_click_logo_scooter_open_dzen_page(self, driver):
         home_page = HomePage(driver)
         home_page.click_logo_yandex()
         home_page.switch_to_new_tab()
-        home_page.find_clickable_element(BasePageLocators.LOGO_DZEN)
-        assert DZEN_URL in driver.current_url
+        home_page.wait_load_dzen()
+        assert DZEN_URL in home_page.get_current_url()
 
     @allure.title('Проверить: Выпадающий список в разделе «Вопросы о важном»')
     @pytest.mark.parametrize('question_locator, answer_locator, tested_text', [

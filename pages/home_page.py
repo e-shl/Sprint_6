@@ -13,7 +13,7 @@ class HomePage(BasePage):
 
     @allure.step('Получить текста ответа')
     def get_answer_text(self, answer_locator):
-        answer_text = self.driver.find_element(*answer_locator).text
+        answer_text = self.find_clickable_element(answer_locator).text
         return answer_text
 
     @allure.step('Нажать кнопку Заказать в шапке страницы')

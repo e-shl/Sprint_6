@@ -7,6 +7,6 @@ class BasePageLocators:
     BUTTON_COOKIE_CONFIRM = (By.ID, 'rcc-confirm-button')
 
     # Лого Поиск Яндекс в DZEN
-    LOGO_DZEN = (By.XPATH, '//*[contains(text(),"Поиск Яндекс")]')
+    YANDEX_SEARCH = (By.XPATH, '//*[contains(text(),"Поиск Яндекс")]')
 
 
